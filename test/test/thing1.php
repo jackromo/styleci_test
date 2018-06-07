@@ -14,7 +14,7 @@
  * visit when the cron job is needed to run.
  */
 ignore_user_abort(true);
-if (!empty($_POST) || defined('DOING_AJAX') || defined('DOING_CRON')) {
+if (! empty($_POST) || defined('DOING_AJAX') || defined('DOING_CRON')) {
     die();
 }
 /*
@@ -23,7 +23,7 @@ if (!empty($_POST) || defined('DOING_AJAX') || defined('DOING_CRON')) {
  * @var bool
  */
 define('DOING_CRON', true);
-if (!defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     /** Set up WordPress environment */
     require_once dirname(__FILE__).'/wp-load.php';
 }
@@ -97,7 +97,7 @@ foreach ($crons as $timestamp => $cronhooks) {
         foreach ($keys as $k => $v) {
             $schedule = $v['schedule'];
             if ($schedule !== false) {
-                $new_args = array($timestamp, $schedule, $hook, $v['args']);
+                $new_args = [$timestamp, $schedule, $hook, $v['args']];
                 call_user_func_array('wp_reschedule_event', $new_args);
             }
             wp_unschedule_event($timestamp, $hook, $v['args']);
