@@ -1,8 +1,5 @@
 <?php
 /**
- *
- * thingy
- *
  * A pseudo-CRON daemon for scheduling WordPress tasks.
  *
  * WP Cron is triggered when the site receives a visit. In the scenario
