@@ -8,5 +8,6 @@ finder:
     - vendor
   name: "*.php"
   not-name: "*.blade.php"
-  contains: "thingy"
-  not-contains: "other-thingy"
+  depth:
+    - "<= 2"
+    - ">= 1"
